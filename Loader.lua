@@ -22,5 +22,5 @@ local v = "https://raw.githubusercontent.com/evelynnscripts/Scripts/refs/heads/m
 local function found(id) return scripts[id] ~= nil end
 local function load(id) if not found(id) then game.Players.LocalPlayer:Kick("Game is not supported!") return end
 local url = v .. scripts[id]
-local ok, _ = pcall(function() loadstring(game:HttpGet(url, true))() end) if not ok then game.Players.LocalPlayer:Kick("Script Failed To Load!") end end
+local ok, _ = pcall(function() loadstring(game:HttpGet(url, true))() end)
 load(placeId)
