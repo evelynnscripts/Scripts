@@ -8,6 +8,7 @@ local games = {
     ["4442272183"]      = { name = "bloxfruitssea2", url = "https://raw.githubusercontent.com/evelynnscripts/Scripts/refs/heads/main/Loader/blox-fruits-sea2.lua" },
     ["7449423635"]      = { name = "bloxfruitssea3", url = "https://raw.githubusercontent.com/evelynnscripts/Scripts/refs/heads/main/Loader/blox-fruits-sea3.lua" },
     ["12355337193"]     = { name = "mvsd", url = "https://raw.githubusercontent.com/evelynnscripts/Scripts/refs/heads/main/Loader/mvsd-loader.lua" },
+    ["13771457545"]     = { name = "mvsd", url = "https://raw.githubusercontent.com/evelynnscripts/Scripts/refs/heads/main/Loader/mvsd-loader.lua" },
     ["126884695634066"] = { name = "growagarden", url = "https://raw.githubusercontent.com/evelynnscripts/Scripts/refs/heads/main/Loader/grow-a-garden.lua" },
     ["83942919686609"]  = { name = "buildascamempire", url = "https://raw.githubusercontent.com/evelynnscripts/Scripts/refs/heads/main/Loader/build-a-scam-empire.lua" },
     ["89343390950953"]  = { name = "mysingingbrainrot", url = "https://raw.githubusercontent.com/evelynnscripts/Scripts/refs/heads/main/Loader/my-singing-brainrot.lua" },
